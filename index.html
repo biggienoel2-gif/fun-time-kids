@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHALOM COVENANT CHURCH INTERNATIONAL</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --nav-bg: #166088;
+            --nav-text: #fff;
+            --footer-bg: #222;
+            --footer-text: #ddd;
+        }
+
+        .dark-mode {
+            --primary-color: #6a8fc5;
+            --secondary-color: #3a80b8;
+            --text-color: #eee;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --nav-bg: #0d2b4e;
+            --nav-text: #fff;
+            --footer-bg: #111;
+            --footer-text: #ccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            color: var(--nav-text);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 20px;
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("mission.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .programs {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .program-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .program-time {
+            flex: 0 0 150px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .program-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .map-container {
+            height: 400px;
+            margin: 3rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pastor-profile {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .pastor-img {
+            flex: 0 0 200px;
+            margin-right: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pastor-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .pastor-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .pastor-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--footer-text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .pastor-profile {
+                flex-direction: column;
+            }
+
+            .pastor-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Church Logo">
+                <div class="logo-text">
+                    <h1>SHALOM COVENANTS CHURCH INTERATIONAL</h1>
+                    <p>Growing in faith, serving in love</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#sermons">Sermons</a></li>
+                    <li><a href="#prayer">Prayer</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">🌓</button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Welcome to Shalom Covenant Church</h2>
+            <p>Join us as we worship, grow, and serve together in Arua. Experience the transforming power of God's love in our community.</p>
+            <a href="#programs" class="btn">Our Programs</a>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <div class="section-title">
+            <h2>About Our Church</h2>
+            <p>Shalom Covenant Church Arua is a vibrant community of believers committed to spreading the Gospel and serving our community.</p>
+        </div>
+
+        <div class="pastor-profile">
+            <div class="pastor-img">
+                <img src="jema.jpg" alt="Apostle Jema John">
+            </div>
+            <div class="pastor-info">
+                <h3>APOSTLE JEMA JOHN</h3>
+                <p>Senior Pastor</p>
+                <p>Apostle Jema John has been serving as the Senior Pastor of Shalom Covenant Church Arua since its founding. With a passion for teaching God's Word and a heart for the community, he leads our congregation with wisdom and compassion.</p>
+                <p>Under his leadership, the church has grown both spiritually and numerically, impacting countless lives in Arua and beyond.</p>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-image">
+                    <img src="vid.webp" alt="Our Mission">
+                </div>
+                <div class="card-content">
+                    <h3>Our Mission</h3>
+                    <p>To make disciples of Jesus Christ who worship passionately, love extravagantly, and witness boldly.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="pexels-kwsignatureseries-89909.jpg" alt="Our Vision">
+                </div>
+                <div class="card-content">
+                    <h3>Our Vision</h3>
+                    <p>To be a transforming presence in Arua through the power of the Gospel, impacting generations for Christ.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="vid.webp" alt="Our Values">
+                </div>
+                <div class="card-content">
+                    <h3>Our Values</h3>
+                    <p>Biblical truth, authentic worship, genuine community, compassionate service, and intentional discipleship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="programs">
+        <div class="section-title">
+            <h2>Church Programs</h2>
+            <p>Join us for our weekly services and special events. All are welcome!</p>
+        </div>
+
+        <div class="programs">
+            <h3>Weekly Schedule</h3>
+            <div class="program-item">
+                <div class="program-time">Sunday 8:00 AM</div>
+                <div class="program-details">
+                    <h4>Morning Worship Service</h4>
+                    <p>Join us for powerful worship, prayer, and preaching from God's Word.</p>
+                </div>
+            </div>
+            <div class="program-item">
+                <div class="program-time">Tuesday 5:00 PM</div>
+                <div class="program-details">
+                    <h4>Bible Study</h4>
+                    <p>In-depth study of Scripture with practical application for daily living.</p>
+                </div>
+            </div>
+            <div class="program-item">
+                <div class="program-time">Thursday 6:00 PM</div>
+                <div class="program-details">
+                    <h4>Prayer Meeting</h4>
+                    <p>Corporate prayer for the church, community, and nations.</p>
+                </div>
+            </div>
+            <div class="program-item">
+                <div class="program-time">Friday 4:00 PM</div>
+                <div class="program-details">
+                    <h4>Youth Fellowship</h4>
+                    <p>Dynamic gathering for young people with worship, teaching, and fun activities.</p>
+                </div>
+            </div>
+            <div class="program-item">
+                <div class="program-time">Saturday 10:00 AM</div>
+                <div class="program-details">
+                    <h4>Women's Ministry</h4>
+                    <p>Encouragement and discipleship for women of all ages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h3>Upcoming Special Events</h3>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Revival Week">
+                </div>
+                <div class="card-content">
+                    <h3>Annual Revival Week</h3>
+                    <p>Join us for a week of powerful services with guest speakers and special worship.</p>
+                    <p><strong>Date:</strong> November 15-20, 2023</p>
+                    <p><strong>Time:</strong> 6:00 PM Daily</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Outreach">
+                </div>
+                <div class="card-content">
+                    <h3>Community Outreach</h3>
+                    <p>We'll be serving our community through practical acts of love and sharing the Gospel.</p>
+                    <p><strong>Date:</strong> December 5, 2023</p>
+                    <p><strong>Time:</strong> 8:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Christmas Celebration">
+                </div>
+                <div class="card-content">
+                    <h3>Christmas Celebration</h3>
+                    <p>Special service with carols, drama, and a message of hope for the season.</p>
+                    <p><strong>Date:</strong> December 24, 2023</p>
+                    <p><strong>Time:</strong> 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="sermons">
+        <div class="section-title">
+            <h2>Recent Sermons</h2>
+            <p>Watch or listen to our latest messages from God's Word.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Walking in Faith</h3>
+                    <p><strong>Speaker:</strong> Apostle Jema John</p>
+                    <p><strong>Date:</strong> October 15, 2023</p>
+                    <p>In this message, we explore what it means to truly walk by faith and not by sight in our daily lives.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>The Power of Prayer</h3>
+                    <p><strong>Speaker:</strong> Apostle Jema John</p>
+                    <p><strong>Date:</strong> October 8, 2023</p>
+                    <p>Discover how prayer can transform your life and circumstances as we study biblical examples of powerful prayer.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/mm.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Living as God's Children</h3>
+                    <p><strong>Speaker:</strong> Apostle Jema John</p>
+                    <p><strong>Date:</strong> October 1, 2023</p>
+                    <p>What does it mean to live as children of God in a world that often opposes His values? This message provides practical guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="prayer">
+        <div class="section-title">
+            <h2>Prayer Request</h2>
+            <p>We believe in the power of prayer. Share your request with us and our prayer team will intercede for you.</p>
+        </div>
+
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-content">
+                <form id="prayerForm">
+                    <div class="form-group">
+                        <label for="name">Your Name (Optional)</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email (Optional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="request">Prayer Request *</label>
+                        <textarea id="request" name="request" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">May we contact you about this request?</label>
+                        <select id="contact" name="contact">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you. Reach out with any questions or needs.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Your Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="contactSubject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="contactMessage" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong> Shalom Covenant Church Arua, P.O. Box 123, Arua, Uganda</p>
+                    <p><strong>Email:</strong> <a href="mailto:biggienoel2@gmail.com">biggienoel2@gmail.com</a></p>
+                    <p><strong>Phone:</strong> +256 XXX XXX XXX</p>
+                    <p><strong>Office Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM</p>
+                    
+                    <h3 style="margin-top: 30px;">Our Location</h3>
+                    <div class="map-container">
+                        <!-- You can replace this with your actual map embed code -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3.0051338408440125, 30.913641830492196.81201531526384!3d3.022197354162143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMDEnMTkuOSJOIDMwwrA0OCc0OS4xIkU!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>SHALOM Covenant Church Arua is a Bible-believing community committed to making disciples of Jesus Christ.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#sermons">Sermons</a></li>
+                    <li><a href="#prayer">Prayer</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Bible Reading Plan</a></li>
+                    <li><a href="#">Devotionals</a></li>
+                    <li><a href="#">Ministries</a></li>
+                    <li><a href="#">Giving</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Subscribe</h3>
+                <p>Stay updated with our latest news and events.</p>
+                <form id="subscribeForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SHALOM COVENANT CHURCH ARUA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme') || 
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Apply the saved theme
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '🌞';
+        } else {
+            body.classList.remove('dark-mode');
+            themeToggle.textContent = '🌙';
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? '🌞' : '🌙';
+        });
+        
+        // Form handling
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for sharing your prayer request. Our team will pray for you.');
+            this.reset();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon.');
+            this.reset();
+        });
+        
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our updates!');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
